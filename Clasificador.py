@@ -19,8 +19,8 @@ classifier.compile(optimizer = 'adam',loss = 'binary_crossentropy',metrics = ['a
 train_datagen = ImageDataGenerator(rescale = 1./255,shear_range=0.2,zoom_range = 0.2,horizontal_flip = True)
 test_datagen = ImageDataGenerator(rescale = 1./255)
 
-train_dataset = train_datagen.flow_from_directory('C:/Users/52473/Desktop/TRATO/Code/INE/training',target_size = (106,168),batch_size = 6,class_mode='binary')
-test_dataset = test_datagen.flow_from_directory('C:/Users/52473/Desktop/TRATO/Code/INE/testing',target_size = (106,168),batch_size = 6,class_mode='binary')
+train_dataset = train_datagen.flow_from_directory('training_path',target_size = (106,168),batch_size = 6,class_mode='binary')
+test_dataset = test_datagen.flow_from_directory('testing_path',target_size = (106,168),batch_size = 6,class_mode='binary')
 
 classifier.fit_generator(train_dataset,steps_per_epoch = 18//6,epochs = 25,validation_data = test_dataset,validation_steps = 18//6)
 
